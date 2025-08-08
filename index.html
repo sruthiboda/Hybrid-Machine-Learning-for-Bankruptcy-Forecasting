@@ -1,0 +1,9 @@
+<form method="POST" action="/predict">
+  {% for i in range(64) %}
+    <input type="text" name="f{{ i }}" placeholder="Feature {{ i+1 }}">
+{% endfor %}
+
+  <input type="submit" value="Predict">
+</form>
+
+<h3>{{ prediction_text }}</h3>

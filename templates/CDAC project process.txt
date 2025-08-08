@@ -1,0 +1,3 @@
+path  :  cd "C:\Users\sruth\OneDrive\Documents\keyyloggeer"
+Activate : python keylogger.py
+Deactiveate : python detector.py
