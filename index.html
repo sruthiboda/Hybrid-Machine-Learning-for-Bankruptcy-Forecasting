@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form method="POST" action="/predict">
   {% for i in range(64) %}
     <input type="text" name="f{{ i }}" placeholder="Feature {{ i+1 }}">
@@ -7,3 +8,90 @@
 </form>
 
 <h3>{{ prediction_text }}</h3>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Predictions</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(to right, #0052D4, #6a3093, #d31027);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 48px;
+      letter-spacing: 2px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      width: 90%;
+      max-width: 1200px;
+      margin-top: 30px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      grid-column: span 6;
+      padding: 12px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background-color: #14d6c0;
+      color: white;
+      cursor: pointer;
+      margin: 20px auto;
+      transition: background 0.3s ease;
+      width: 150px;
+      justify-self: center;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0faea0;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <h1>Predictions</h1>
+
+  <form method="POST" action="/predict">
+    {% for i in range(64) %}
+      <input type="text" name="f{{ i }}" placeholder="Feature {{ i+1 }}">
+    {% endfor %}
+    <input type="submit" value="Predict">
+  </form>
+
+  {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+  {% endif %}
+</body>
+</html>
+
+
+>>>>>>> e6660292faee72ed70a9d298713fcca0118d5b2e

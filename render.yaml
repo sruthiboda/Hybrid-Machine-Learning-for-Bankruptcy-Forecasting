@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 services:
   - type: web
     name: bankruptcy-forecasting-app
@@ -7,3 +8,15 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.13
+=======
+services:
+  - type: web
+    name: bankruptcy-predictor
+    env: python
+    buildCommand: ""
+    startCommand: python app.py
+    plan: free
+    region: oregon
+
+
+>>>>>>> e6660292faee72ed70a9d298713fcca0118d5b2e
