@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Predictions</title>
+  <title>Bankruptcy Prediction</title>
   <style>
     body {
       margin: 0;
@@ -21,6 +21,7 @@
       margin-top: 40px;
       font-size: 48px;
       letter-spacing: 2px;
+      text-align: center;
     }
 
     form {
@@ -32,13 +33,14 @@
       margin-top: 30px;
     }
 
-    input[type="text"] {
+    input[type="number"] {
       padding: 10px;
       border-radius: 10px;
       border: none;
       font-size: 14px;
       width: 100%;
       box-sizing: border-box;
+      text-align: center;
     }
 
     input[type="submit"] {
@@ -63,21 +65,30 @@
     h3 {
       margin-top: 20px;
       font-weight: normal;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .error {
+      color: #ffcccc;
     }
   </style>
 </head>
 <body>
-  <h1>Predictions</h1>
+  <h1>Bankruptcy Prediction</h1>
 
   <form method="POST" action="/predict">
     {% for i in range(64) %}
-      <input type="text" name="f{{ i }}" placeholder="Feature {{ i+1 }}">
+      <input type="number" step="any" name="f{{ i }}" placeholder="Feature {{ i+1 }}" required>
     {% endfor %}
     <input type="submit" value="Predict">
   </form>
 
   {% if prediction_text %}
-    <h3>{{ prediction_text }}</h3>
+    <h3 class="{{ 'error' if 'Error' in prediction_text else '' }}">
+      {{ prediction_text }}
+    </h3>
   {% endif %}
 </body>
 </html>
